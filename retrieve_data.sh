@@ -8,7 +8,7 @@ URL_LINK="https://jsonplaceholder.typicode.com/photos"
 DATA_LOCATION="datahub/data.json"
 temp="mktemp"
 
-curl "${URL_LINK}" | jq '.[:$SIZE]' > $temp
+curl -s "${URL_LINK}" | jq ".[:$SIZE]" > $temp
 
 if [[ ! -f $DATA_LOCATION ]]
   then
@@ -29,16 +29,16 @@ if ! diff -q ${DATA_LOCATION} $temp
 fi
 
 
-cat <-EOF
+cat <<-EOF
 
 The current data version is: $VERSION
 
 The total dataset size: $(jq '. | length' $DATA_LOCATION)
 
 Sample rows: $(jq '.[:3] $DATA_LOCATION)
-EOF>
+EOF
 
 
 
-EOF>
+EOF
 
