@@ -35,10 +35,7 @@ The current data version is: $VERSION
 
 The total dataset size: $(jq '. | length' $DATA_LOCATION)
 
-Sample rows: $(jq '.[:3] $DATA_LOCATION)
+Sample rows: $(jq '.[:3]' $DATA_LOCATION)
 EOF
 
-
-
-EOF
 
