@@ -1,15 +1,11 @@
 name: Lint Code
-
 on:
-
   push:
     branches: [ master ]
-
   pull_requests:
     branches: [ master ]
 
 jobs:
-
   builds:
     runs-on: ubuntu-latest
 
